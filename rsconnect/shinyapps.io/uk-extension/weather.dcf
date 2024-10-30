@@ -1,0 +1,12 @@
+name: weather
+title: weather
+username: uk-extension
+account: uk-extension
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 13186856
+bundleId: 9293687
+url: https://uk-extension.shinyapps.io/weather/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
