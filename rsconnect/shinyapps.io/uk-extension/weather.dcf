@@ -5,7 +5,7 @@ account: uk-extension
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 13186856
-bundleId: 9293687
+bundleId: 12655877
 url: https://uk-extension.shinyapps.io/weather/
 version: 1
 asMultiple: FALSE
