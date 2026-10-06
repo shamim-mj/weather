@@ -43,7 +43,7 @@ get_climate_data <- function(lat, lon, start_date, end_date) {
     dates        = c(start_date, end_date),
     temporal_api = "daily"
   )
-  
+
   data <- data |>
     rename(
       Relative_Humidity  = RH2M,
@@ -64,7 +64,7 @@ get_climate_data <- function(lat, lon, start_date, end_date) {
       # Pre-build month name — used in MONTHLY plots
       MM_name = month.abb[MM]   # cleaner than a long case_when
     )
-  
+
   return(data)
 }
 
@@ -75,10 +75,10 @@ get_climate_data <- function(lat, lon, start_date, end_date) {
 # plot_weather(): main plotting function
 # =============================================================================
 plot_weather <- function(df, freq, param, col, plot_type = "Individual Parameter") {
-  
+
   # ── INDIVIDUAL PARAMETER ────────────────────────────────────────────────────
   if (plot_type == "Individual Parameter") {
-    
+
     # ── DAILY ──
     if (freq == "DAILY") {
       df |>
@@ -96,8 +96,8 @@ plot_weather <- function(df, freq, param, col, plot_type = "Individual Parameter
           caption = "Data source: NASA POWER"
         ) +
         nasa_theme()
-      
-      # ── MONTHLY ──
+
+    # ── MONTHLY ──
     } else if (freq == "MONTHLY") {
       df |>
         group_by(YEAR, MM, MM_name) |>
@@ -120,8 +120,8 @@ plot_weather <- function(df, freq, param, col, plot_type = "Individual Parameter
           caption = "Data source: NASA POWER"
         ) +
         nasa_theme()
-      
-      # ── ANNUAL ──
+
+    # ── ANNUAL ──
     } else if (freq == "ANNUAL") {
       df |>
         group_by(YEAR) |>
@@ -145,14 +145,14 @@ plot_weather <- function(df, freq, param, col, plot_type = "Individual Parameter
         ) +
         nasa_theme()
     }
-    
-    # ── OVERVIEW (Temperature + Precipitation together) ─────────────────────────
+
+  # ── OVERVIEW (Temperature + Precipitation together) ─────────────────────────
   } else {
-    
+
     # ── DAILY OVERVIEW ──
     if (freq == "DAILY") {
       scale_factor <- 10   # multiply precip to map onto temp axis
-      
+
       df |>
         ggplot(aes(x = YYYYMMDD)) +                  # ← real dates
         geom_col(aes(y = Precipitation * scale_factor, fill = "Precipitation"),
@@ -185,11 +185,11 @@ plot_weather <- function(df, freq, param, col, plot_type = "Individual Parameter
           caption = "Data source: NASA POWER"
         ) +
         nasa_theme()
-      
-      # ── MONTHLY OVERVIEW ──
+
+    # ── MONTHLY OVERVIEW ──
     } else if (freq == "MONTHLY") {
       scale_factor <- 10
-      
+
       df |>
         group_by(YEAR, MM, MM_name) |>
         reframe(
@@ -225,12 +225,12 @@ plot_weather <- function(df, freq, param, col, plot_type = "Individual Parameter
           caption = "Data source: NASA POWER"
         ) +
         nasa_theme()
-      
-      # ── ANNUAL OVERVIEW ──
+
+    # ── ANNUAL OVERVIEW ──
     } else if (freq == "ANNUAL") {
       # Annual precip is already in total inches — scale factor maps to temp axis
       scale_factor <- 5
-      
+
       df |>
         group_by(YEAR) |>
         reframe(

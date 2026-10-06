@@ -1,5 +1,5 @@
 ui <- fluidPage(
-  
+
   # ============================================================
   # HEAD: CSS + JS (single tags$head block — no duplicates)
   # ============================================================
@@ -7,7 +7,7 @@ ui <- fluidPage(
     tags$link(rel = "stylesheet", type = "text/css", href = "custom.css"),
     tags$link(rel = "stylesheet",
               href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"),
-    
+
     tags$style(HTML("
 
       /* ── Global ─────────────────────────────────────── */
@@ -327,7 +327,7 @@ ui <- fluidPage(
       .app-footer a { color: #89b8ff; text-decoration: none; }
 
     ")),
-    
+
     # ── Geolocation JS ──────────────────────────────────────
     tags$script(HTML("
       function getLocation(inputId, statusId) {
@@ -367,116 +367,116 @@ ui <- fluidPage(
       }
     "))
   ),
-  
+
   # ============================================================
   # BANNER
   # ============================================================
   div(class = "app-banner",
-      div(class = "banner-icons",
-          HTML('<i class="fa-solid fa-satellite"></i> &nbsp;
+    div(class = "banner-icons",
+      HTML('<i class="fa-solid fa-satellite"></i> &nbsp;
             <i class="fa-solid fa-cloud-sun-rain"></i> &nbsp;
             <i class="fa-solid fa-seedling"></i>')
-      ),
-      h1("NASA POWER DATA VIEWER"),
-      h4("Meteorological Data for Agriculture | University of Kentucky Extension")
+    ),
+    h1("NASA POWER DATA VIEWER"),
+    h4("Meteorological Data for Agriculture | University of Kentucky Extension")
   ),
-  
+
   # ============================================================
   # NAVBAR
   # ============================================================
   navbarPage(
     title = "",
     id    = "main",
-    
+
     # ── HOME ──────────────────────────────────────────────────
     tabPanel(
       HTML('<i class="fa-solid fa-house"></i>  HOME'),
-      
+
       div(class = "home-wrapper",
-          
-          # Welcome card
-          div(class = "home-card",
-              h2(HTML('<i class="fa-solid fa-satellite" style="margin-right:10px;"></i>Welcome to the NASA POWER Data Viewer')),
-              p("Developed by ", tags$strong("Dr. Mohammad Jan Shamim"), ", Extension Associate, University of Kentucky."),
-              p("Modified with suggestions from ", tags$strong("Dr. Chad Lee"), "."),
-              p("This web application provides daily meteorological data for any location worldwide,
+
+        # Welcome card
+        div(class = "home-card",
+          h2(HTML('<i class="fa-solid fa-satellite" style="margin-right:10px;"></i>Welcome to the NASA POWER Data Viewer')),
+          p("Developed by ", tags$strong("Dr. Mohammad Jan Shamim"), ", Extension Associate, University of Kentucky."),
+          p("Modified with suggestions from ", tags$strong("Dr. Chad Lee"), "."),
+          p("This web application provides daily meteorological data for any location worldwide,
             based on a single-point coordinate system using NASA POWER (Prediction of Worldwide
             Energy Resources) — a trusted source for agricultural climate data.")
-          ),
-          
-          # Parameters badges
-          div(class = "home-card",
-              h3(HTML('<i class="fa-solid fa-temperature-half" style="margin-right:8px;"></i>Available Parameters')),
-              div(class = "badge-row",
-                  span(class = "param-badge", "🌡 Tmin"),
-                  span(class = "param-badge", "🌡 Tmean"),
-                  span(class = "param-badge", "🌡 Tmax"),
-                  span(class = "param-badge", "🌧 Precipitation"),
-                  span(class = "param-badge", "💧 Relative Humidity"),
-                  span(class = "param-badge", "☀️ Radiation (All Sky)"),
-                  span(class = "param-badge", "🌤 Radiation (Clear Sky)")
-              )
-          ),
-          
-          # How to use — step grid
-          div(class = "home-card",
-              h3(HTML('<i class="fa-solid fa-circle-question" style="margin-right:8px;"></i>How to Use')),
-              div(class = "step-grid",
-                  div(class = "step-box",
-                      div(class = "step-num", "①"),
-                      p(tags$strong("Get coordinates:"), " Right-click on Google Maps, or long-press on a smartphone then tap 'Dropped pin'.
+        ),
+
+        # Parameters badges
+        div(class = "home-card",
+          h3(HTML('<i class="fa-solid fa-temperature-half" style="margin-right:8px;"></i>Available Parameters')),
+          div(class = "badge-row",
+            span(class = "param-badge", "🌡 Tmin"),
+            span(class = "param-badge", "🌡 Tmean"),
+            span(class = "param-badge", "🌡 Tmax"),
+            span(class = "param-badge", "🌧 Precipitation"),
+            span(class = "param-badge", "💧 Relative Humidity"),
+            span(class = "param-badge", "☀️ Radiation (All Sky)"),
+            span(class = "param-badge", "🌤 Radiation (Clear Sky)")
+          )
+        ),
+
+        # How to use — step grid
+        div(class = "home-card",
+          h3(HTML('<i class="fa-solid fa-circle-question" style="margin-right:8px;"></i>How to Use')),
+          div(class = "step-grid",
+            div(class = "step-box",
+              div(class = "step-num", "①"),
+              p(tags$strong("Get coordinates:"), " Right-click on Google Maps, or long-press on a smartphone then tap 'Dropped pin'.
                 You can also press the ", tags$em("📍 Use My Location"), " button.")
-                  ),
-                  div(class = "step-box",
-                      div(class = "step-num", "②"),
-                      p(tags$strong("TABLE tab:"), " Enter coordinates and date range → Submit → explore data in the table →
+            ),
+            div(class = "step-box",
+              div(class = "step-num", "②"),
+              p(tags$strong("TABLE tab:"), " Enter coordinates and date range → Submit → explore data in the table →
                 click ", tags$em("Download Dataset"), " once the table appears.")
-                  ),
-                  div(class = "step-box",
-                      div(class = "step-num", "③"),
-                      p(tags$strong("CHART tab:"), " Choose frequency (Daily / Monthly / Annual), plot type (Individual or Overview),
+            ),
+            div(class = "step-box",
+              div(class = "step-num", "③"),
+              p(tags$strong("CHART tab:"), " Choose frequency (Daily / Monthly / Annual), plot type (Individual or Overview),
                 variable, color, and dates → Submit.")
-                  ),
-                  div(class = "step-box",
-                      div(class = "step-num", "④"),
-                      p(tags$strong("Tip:"), " Adjust your browser width to resize the chart.
+            ),
+            div(class = "step-box",
+              div(class = "step-num", "④"),
+              p(tags$strong("Tip:"), " Adjust your browser width to resize the chart.
                 Monthly/Annual views need at least 2 months/years of data for line charts.
                 This app returns ", tags$strong("historical data only"), ".")
-                  )
-              )
-          ),
-          
-          # Disclaimer
-          div(class = "home-card",
-              div(class = "disclaimer-box",
-                  HTML('<i class="fa-solid fa-triangle-exclamation" style="color:#f59e0b; margin-right:8px;"></i>
+            )
+          )
+        ),
+
+        # Disclaimer
+        div(class = "home-card",
+          div(class = "disclaimer-box",
+            HTML('<i class="fa-solid fa-triangle-exclamation" style="color:#f59e0b; margin-right:8px;"></i>
                   <strong>Disclaimer:</strong> We do not accept liability for the accuracy, completeness, or usefulness
                   of the data. Users should verify all information with other reliable sources.
                   For more information, visit <a href="https://power.larc.nasa.gov" target="_blank">NASA POWER</a>.')
-              ),
-              br(),
-              p(
-                HTML('<i class="fa-solid fa-envelope" style="margin-right:6px; color:#0033A0;"></i>'),
-                "Questions or inquiries? ", a("Contact us", href = "mailto:mshamim11@uky.edu", target = "_blank"), ".",
-                tags$br(),
-                HTML('<i class="fa-solid fa-chart-bar" style="margin-right:6px; color:#0033A0;"></i>'),
-                "Also explore our ", a("NASS Data Viewer", href = "https://uk-extension.shinyapps.io/nass/", target = "_blank"), "."
-              )
+          ),
+          br(),
+          p(
+            HTML('<i class="fa-solid fa-envelope" style="margin-right:6px; color:#0033A0;"></i>'),
+            "Questions or inquiries? ", a("Contact us", href = "mailto:mshamim11@uky.edu", target = "_blank"), ".",
+            tags$br(),
+            HTML('<i class="fa-solid fa-chart-bar" style="margin-right:6px; color:#0033A0;"></i>'),
+            "Also explore our ", a("NASS Data Viewer", href = "https://uk-extension.shinyapps.io/nass/", target = "_blank"), "."
           )
+        )
       )
     ),
-    
+
     # ── WEATHER DATA - TABLE ──────────────────────────────────
     tabPanel(
       HTML('<i class="fa-solid fa-table"></i>  DATA TABLE'),
-      
+
       br(),
       sidebarLayout(
         sidebarPanel(
           width = 3,
           span(class = "sidebar-title",
                HTML('<i class="fa-solid fa-sliders"></i>  Parameters')),
-          
+
           tags$label(HTML('<i class="fa-solid fa-location-dot"></i>  Latitude, Longitude')),
           textInput(inputId = "latlong",
                     label   = NULL,
@@ -486,39 +486,39 @@ ui <- fluidPage(
                        onclick = "getLocation('latlong', 'location_status')",
                        class   = "btn-location"),
           div(class = "location-status", textOutput("location_status")),
-          
+
           hr(style = "border-color: #dde3f0; margin: 14px 0;"),
-          
+
           dateInput("start_date", HTML('<i class="fa-solid fa-calendar-days"></i>  Start Date')),
           dateInput("stop_date",  HTML('<i class="fa-solid fa-calendar-check"></i>  End Date')),
-          
+
           submitButton(HTML('<i class="fa-solid fa-rocket"></i>  Fetch Data'))
         ),
-        
+
         mainPanel(
           width = 9,
           div(class = "main-panel-box",
-              DTOutput("weather_data"),
-              br(),
-              downloadButton(outputId = "downloadDataweather",
-                             label    = HTML('<i class="fa-solid fa-file-csv"></i>  Download Dataset'),
-                             class    = "btn btn-download")
+            DTOutput("weather_data"),
+            br(),
+            downloadButton(outputId = "downloadDataweather",
+                           label    = HTML('<i class="fa-solid fa-file-csv"></i>  Download Dataset'),
+                           class    = "btn btn-download")
           )
         )
       )
     ),
-    
+
     # ── WEATHER DATA - CHART ──────────────────────────────────
     tabPanel(
       HTML('<i class="fa-solid fa-chart-line"></i>  CHART'),
-      
+
       br(),
       sidebarLayout(
         sidebarPanel(
           width = 3,
           span(class = "sidebar-title",
                HTML('<i class="fa-solid fa-sliders"></i>  Parameters')),
-          
+
           tags$label(HTML('<i class="fa-solid fa-location-dot"></i>  Latitude, Longitude')),
           textInput(inputId = "latlong_c",
                     label   = NULL,
@@ -528,17 +528,17 @@ ui <- fluidPage(
                        onclick = "getLocation('latlong_c', 'location_status_c')",
                        class   = "btn-location"),
           div(class = "location-status", textOutput("location_status_c")),
-          
+
           hr(style = "border-color: #dde3f0; margin: 14px 0;"),
-          
+
           selectInput("freq", HTML('<i class="fa-solid fa-calendar-week"></i>  Frequency'),
                       choices  = c("DAILY", "MONTHLY", "ANNUAL"),
                       selected = "DAILY"),
-          
+
           selectInput("plot_type", HTML('<i class="fa-solid fa-chart-area"></i>  Plot Type'),
                       choices  = c("Individual Parameter", "Overview"),
                       selected = "Individual Parameter"),
-          
+
           conditionalPanel(
             condition = "input.plot_type == 'Individual Parameter'",
             selectInput("param_c", HTML('<i class="fa-solid fa-thermometer-half"></i>  Variable'),
@@ -546,7 +546,7 @@ ui <- fluidPage(
                                     "Precipitation", "Relative_Humidity",
                                     "Radiation_All_Sky", "Radiation_Clear_Sky"))
           ),
-          
+
           conditionalPanel(
             condition = "input.plot_type == 'Individual Parameter'",
             selectInput("col_c", HTML('<i class="fa-solid fa-palette"></i>  Chart Color'),
@@ -555,62 +555,62 @@ ui <- fluidPage(
                                     "cyan", "orange", "purple", "brown",
                                     "gold", "gray", "pink"))
           ),
-          
+
           hr(style = "border-color: #dde3f0; margin: 14px 0;"),
-          
+
           dateInput("start_date_c", HTML('<i class="fa-solid fa-calendar-days"></i>  Start Date')),
           dateInput("stop_date_c",  HTML('<i class="fa-solid fa-calendar-check"></i>  End Date')),
-          
+
           submitButton(HTML('<i class="fa-solid fa-rocket"></i>  Generate Chart'))
         ),
-        
+
         mainPanel(
           width = 9,
           div(class = "main-panel-box",
-              shinycssloaders::withSpinner(
-                plotOutput("weather_plot", height = "620px", width = "100%"),
-                type  = 6,
-                color = "#0033A0"
-              ),
-              p(class = "plot-caption",
-                HTML('<i class="fa-solid fa-circle-info"></i>
+            shinycssloaders::withSpinner(
+              plotOutput("weather_plot", height = "620px", width = "100%"),
+              type  = 6,
+              color = "#0033A0"
+            ),
+            p(class = "plot-caption",
+              HTML('<i class="fa-solid fa-circle-info"></i>
                     Adjust your browser width to resize the chart. &nbsp;|&nbsp;
                     Data source: <a href="https://power.larc.nasa.gov" target="_blank">NASA POWER</a>'))
           )
         )
       )
     ),
-    
+
     # ── KENTUCKY WEATHER ──────────────────────────────────────
     tabPanel(
       HTML('<i class="fa-solid fa-horse"></i>  KENTUCKY'),
-      
+
       div(class = "ky-card",
-          h3(HTML('<i class="fa-solid fa-map-location-dot"></i>  Kentucky Weather Resources')),
-          p("This tab provides links to comprehensive weather information sources for Kentucky.
+        h3(HTML('<i class="fa-solid fa-map-location-dot"></i>  Kentucky Weather Resources')),
+        p("This tab provides links to comprehensive weather information sources for Kentucky.
           Stay updated with current conditions, forecasts, and agricultural weather data."),
-          br(),
-          a(class = "ky-link-btn",
-            href   = "https://www.kymesonet.org/",
-            target = "_blank",
-            HTML('<i class="fa-solid fa-tower-broadcast"></i> Kentucky Mesonet | WKU — Real-time weather station network')),
-          a(class = "ky-link-btn",
-            href   = "http://weather.uky.edu/",
-            target = "_blank",
-            HTML('<i class="fa-solid fa-leaf"></i> UK Agricultural Weather Center — Ag-focused forecasts & data')),
-          br(),
-          p(style = "color: #777; font-size: 12px; font-style: italic;",
-            HTML('<i class="fa-solid fa-circle-info"></i>
+        br(),
+        a(class = "ky-link-btn",
+          href   = "https://www.kymesonet.org/",
+          target = "_blank",
+          HTML('<i class="fa-solid fa-tower-broadcast"></i> Kentucky Mesonet | WKU — Real-time weather station network')),
+        a(class = "ky-link-btn",
+          href   = "http://weather.uky.edu/",
+          target = "_blank",
+          HTML('<i class="fa-solid fa-leaf"></i> UK Agricultural Weather Center — Ag-focused forecasts & data')),
+        br(),
+        p(style = "color: #777; font-size: 12px; font-style: italic;",
+          HTML('<i class="fa-solid fa-circle-info"></i>
                 Links open in a new tab. Stay updated with the latest weather conditions!'))
       )
     )
   ),
-  
+
   # ============================================================
   # FOOTER
   # ============================================================
   div(class = "app-footer",
-      HTML('
+    HTML('
       <i class="fa-solid fa-satellite"></i> &nbsp;
       NASA POWER Data Viewer &nbsp;|&nbsp;
       University of Kentucky Extension &nbsp;|&nbsp;
